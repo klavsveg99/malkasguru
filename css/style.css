@@ -183,6 +183,7 @@ header {
     background: rgba(245, 239, 225, 0.95);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid transparent;
+    padding-top: 16px;
 }
 
 header.sticky {
@@ -1680,8 +1681,12 @@ nav a:not(.header-cta):hover::after {
     margin: 0 auto;
 }
 
+.cta-section:last-of-type {
+    background: var(--bg-darker);
+}
+
 .last-cta {
-    padding: 120px 32px;
+    padding: 100px 32px 80px;
 }
 
 .cta-box h3 {
@@ -1722,16 +1727,6 @@ footer {
     color: var(--text-cream);
     padding: 80px 0 32px;
     position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .footer-content {

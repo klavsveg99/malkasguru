@@ -231,24 +231,16 @@ header.sticky .header-inner {
 }
 
 .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.05;
-}
-
-.logo-line1 {
     font-family: 'Spectral', Georgia, serif;
     font-weight: 600;
     font-size: 22px;
     letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
 }
 
-.logo-line2 {
-    font-family: 'Spectral', Georgia, serif;
-    font-weight: 600;
+.logo-text em {
     font-style: italic;
-    font-size: 22px;
-    letter-spacing: -0.01em;
 }
 
 .footer-logo {
@@ -271,15 +263,17 @@ header.sticky .header-inner {
 }
 
 .footer-logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.05;
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
+    color: #ffffff;
 }
 
-.footer-logo-text .logo-line1,
-.footer-logo-text .logo-line2 {
-    color: #ffffff;
-    font-size: 24px;
+.footer-logo-text em {
+    font-style: italic;
 }
 
 .footer-info {
@@ -313,10 +307,13 @@ header.sticky .header-inner {
 }
 
 .footer-contact a::before {
-    content: '→';
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
+    content: '';
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    background-color: var(--accent);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
     transition: transform 0.2s ease;
 }
 
@@ -495,8 +492,13 @@ nav a:not(.header-cta):hover::after {
 }
 
 .hero-cta::after {
-    content: '→';
-    font-size: 16px;
+    content: '';
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
     transition: transform 0.2s ease;
 }
 
@@ -527,8 +529,16 @@ nav a:not(.header-cta):hover::after {
     height: 28px;
     border: 1px solid var(--border);
     border-radius: 50%;
-    font-size: 11px;
     transition: all 0.2s ease;
+}
+
+.hero-link span::before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='m6 13 6 6 6-6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='m6 13 6 6 6-6'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
 .hero-link:hover {
@@ -666,17 +676,17 @@ nav a:not(.header-cta):hover::after {
 
 /* DELIVERY PROMISE */
 .delivery-promise {
-    padding: 0 0 80px;
+    padding: 0 24px 80px;
     background: var(--bg);
 }
 
 .delivery-promise-inner {
-    max-width: 1320px;
+    max-width: 1400px;
     margin: 0 auto;
     background: var(--bg-dark);
     color: var(--text-cream);
     border-radius: 24px;
-    padding: 48px 32px 40px;
+    padding: 72px 64px 64px;
     position: relative;
     overflow: hidden;
 }
@@ -817,9 +827,9 @@ nav a:not(.header-cta):hover::after {
 }
 
 .trust-bar-inner {
-    max-width: 1320px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 64px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
@@ -2308,8 +2318,18 @@ body.cookies-accepted .cookie-consent {
 }
 
 .popup-form button::after {
-    content: '→';
-    font-size: 16px;
+    content: '';
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    transition: transform 0.2s ease;
+}
+
+.popup-form button:hover::after {
+    transform: translateX(4px);
 }
 
 .popup-form button:hover {
@@ -2531,7 +2551,7 @@ header.sticky .mobile-menu-toggle {
     }
 
     .delivery-promise {
-        padding: 0 0 60px;
+        padding: 0 16px 60px;
     }
 
     .delivery-promise-inner {
@@ -2560,6 +2580,7 @@ header.sticky .mobile-menu-toggle {
     .trust-bar-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+        padding: 0 32px;
     }
 
     .trust-stat {
@@ -2712,9 +2733,8 @@ header.sticky .mobile-menu-toggle {
         width: 40px;
     }
 
-    .logo-line1,
-    .logo-line2 {
-        font-size: 18px;
+    .logo-text {
+        font-size: 19px;
     }
 
     .hero {
@@ -2761,7 +2781,7 @@ header.sticky .mobile-menu-toggle {
     }
 
     .delivery-promise {
-        padding: 0 0 40px;
+        padding: 0 12px 40px;
     }
 
     .delivery-promise-inner {
@@ -2791,7 +2811,7 @@ header.sticky .mobile-menu-toggle {
     }
 
     .trust-bar-inner {
-        padding: 0 20px;
+        padding: 0 24px;
     }
 
     .trust-stat {

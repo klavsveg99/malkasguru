@@ -301,7 +301,7 @@ if (contactForm) {
 }
 
 const logoLink = document.querySelector('.logo');
-const footerLogo = document.querySelector('.footer-logo-img');
+const footerLogo = document.querySelector('.footer-logo');
 
 function scrollToTop(e) {
     e.preventDefault();

@@ -1,0 +1,17 @@
+﻿{
+  "name": "Malkas Guru - Augstas kvalitātes kamīnmalka",
+  "short_name": "Malkas Guru",
+  "description": "Kvalitatīva kamīnmalka ar piegādi visā Latvijā",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f5efe1",
+  "theme_color": "#1a2920",
+  "icons": [
+    {
+      "src": "images/firewood.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

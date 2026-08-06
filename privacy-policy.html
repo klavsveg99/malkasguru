@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privātuma Politika - Malkas Guru</title>
+    <meta name="description" content="Malkas Guru privātuma politika - kā mēs apkopojam, izmantojam un aizsargājam jūsu personisko informāciju.">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <style>
+        :root {
+            --bg: #f5efe1;
+            --bg-soft: #faf6ec;
+            --bg-warm: #ede5d0;
+            --bg-dark: #1a2920;
+            --bg-darker: #0f1a14;
+            --text: #14201a;
+            --text-light: #5a5a55;
+            --text-light2: #8a8a82;
+            --accent: #b85c2e;
+            --accent-dark: #8a4423;
+            --accent-soft: #f0e0d0;
+            --border: #d4cfc4;
+            --border-light: #e8e3d5;
+            --card-bg: #fcf8ee;
+            --shadow-sm: 0 2px 8px rgba(20, 32, 26, 0.04);
+            --shadow-md: 0 8px 30px rgba(20, 32, 26, 0.08);
+            --radius: 4px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: var(--accent-dark); }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-soft);
+            padding: 24px 0;
+        }
+
+        .topbar-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover { opacity: 0.7; }
+
+        .logo-img { height: 40px; width: auto; color: var(--text); }
+
+        .back-link-top {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link-top:hover { color: var(--accent); }
+        .back-link-top::before { content: '←'; font-size: 14px; }
+
+        main {
+            padding: 80px 0 120px;
+        }
+
+        .page-header {
+            margin-bottom: 64px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .page-num::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 1.05;
+            font-variation-settings: "wght" 500;
+        }
+
+        .effective-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light2);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--text);
+            font-variation-settings: "wght" 500;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 0 0 16px 24px;
+            list-style: none;
+        }
+
+        ul li {
+            padding: 6px 0;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        ul li::before {
+            content: '·';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        strong { color: var(--text); font-weight: 600; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 64px;
+            padding: 16px 28px;
+            background: var(--text);
+            color: var(--text-cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .back-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .back-link::before { content: '←'; font-size: 16px; }
+
+        @media (max-width: 640px) {
+            .container, .topbar-inner { padding: 0 20px; }
+            main { padding: 60px 0 80px; }
+            .page-header { margin-bottom: 48px; }
+            h1 { font-size: 36px; }
+            h2 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="logo">
+                <img src="images/malkas_guru_logo.svg" alt="Malkas Guru" class="logo-img">
+            </a>
+            <a href="index.html" class="back-link-top">Atpakaļ</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-num">Juridiskā informācija</span>
+                <h1>Privātuma politika</h1>
+                <p class="effective-date">Pēdējais atjauninājums · 2026. gada augusts</p>
+            </div>
+
+            <section>
+                <h2>1. Ievads</h2>
+                <p>"Malkas Guru" ("mēs", "mūsu", "uzņēmums") ciena jūsu privātumu un apņemas aizsargāt jūsu personisko informāciju. Šī privātuma politika apraksta, kā mēs apkopojam, izmantojam, aizsargājam un atklājam jūsu personisko informāciju, apmeklējot mūsu vietni malkasguru.lv.</p>
+            </section>
+
+            <section>
+                <h2>2. Informācija, kuru mēs apkopojam</h2>
+                <p>Mēs varam apkopot šāda veida informāciju:</p>
+                <ul>
+                    <li>Personas informācija: vārds, e-pasta adrese, tālruņa numurs, piegādes adrese, kas tiek sniegta, veicot pasūtījumu vai sazinoties ar mums.</li>
+                    <li>Tehniskā informācija: IP adrese, pārlūka veids, operētājsistēma, vietnes apmeklējuma laiks un datums.</li>
+                    <li>Sīkdatnes: mēs izmantojam sīkdatnes, lai uzlabotu jūsu pieredzi mūsu vietnē.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Informācijas izmantošana</h2>
+                <p>Mēs izmantojam apkopoto informāciju šādiem mērķiem:</p>
+                <ul>
+                    <li>Lai apstrādātu jūsu pasūtījumus un nodrošinātu piegādi.</li>
+                    <li>Lai atbildētu uz jūsu jautājumiem un pieprasījumiem.</li>
+                    <li>Lai nodrošinātu un uzlabotu mūsu pakalpojumus.</li>
+                    <li>Lai analizētu vietnes apmeklējumus un uzlabotu saturu.</li>
+                    <li>Lai nodrošinātu tehnisku darbību un novērstu problēmas.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Informācijas nodošana</h2>
+                <p>Mēs neizpaudīsim jūsu personisko informāciju trešajām personām bez jūsu piekrišanas, izņemot gadījumus, kad to pieprasa likums vai kad tas nepieciešams pakalpojuma sniegšanai (piemēram, piegādes pakalpojumu sniedzējiem).</p>
+            </section>
+
+            <section>
+                <h2>5. Google Analytics</h2>
+                <p>Mēs izmantojam Google Analytics, lai analizētu vietnes apmeklējumus. Google Analytics apkopo informāciju, izmantojot sīkdatnes. Šī informācija tiek izmantota, lai uzlabotu mūsu vietni.</p>
+                <p>Google Analytics dati tiek apstrādāti saskaņā ar Google Privātuma politiku. Mēs izmantojam Google Consent Mode v2, lai nodrošinātu atbilstību GDPR prasībām.</p>
+            </section>
+
+            <section>
+                <h2>6. Drošība</h2>
+                <p>Mēs ievērojam saprātīgus drošības pasākumus, lai aizsargātu jūsu informāciju no nesankcionētas piekļuves, izmantošanas vai atklāšanas.</p>
+            </section>
+
+            <section>
+                <h2>7. Jūsu tiesības</h2>
+                <p>Jums ir tiesības pieprasīt piekļuvi jūsu personiskajai informācijai, labot to, dzēst to vai ierobežot tās apstrādi. Lai izmantotu šīs tiesības, lūdzu, sazinieties ar mums.</p>
+            </section>
+
+            <section>
+                <h2>8. Saziņa ar mums</h2>
+                <p>Ja jums ir jautājumi par šo privātuma politiku, lūdzu, sazinieties ar mums:</p>
+                <p>E-pasts: <a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a><br>
+                Tālrunis: <a href="tel:+37126545957">+371 26545957</a></p>
+            </section>
+
+            <a href="index.html" class="back-link">Atgriezties</a>
+        </div>
+    </main>
+</body>
+</html>

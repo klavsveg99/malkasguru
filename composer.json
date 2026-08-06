@@ -1,0 +1,7 @@
+{
+    "name": "malkasguru/landing",
+    "description": "Malkas Guru Landing Website",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

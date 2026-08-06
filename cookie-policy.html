@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sīkdatņu Politika - Malkas Guru</title>
+    <meta name="description" content="Malkas Guru sīkdatņu politika - kādas sīkdatnes mēs izmantojam un kā jūs varat tās pārvaldīt.">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <style>
+        :root {
+            --bg: #f5efe1;
+            --bg-soft: #faf6ec;
+            --bg-warm: #ede5d0;
+            --bg-dark: #1a2920;
+            --bg-darker: #0f1a14;
+            --text: #14201a;
+            --text-light: #5a5a55;
+            --text-light2: #8a8a82;
+            --accent: #b85c2e;
+            --accent-dark: #8a4423;
+            --accent-soft: #f0e0d0;
+            --border: #d4cfc4;
+            --border-light: #e8e3d5;
+            --card-bg: #fcf8ee;
+            --shadow-sm: 0 2px 8px rgba(20, 32, 26, 0.04);
+            --radius: 4px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: var(--accent-dark); }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-soft);
+            padding: 24px 0;
+        }
+
+        .topbar-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover { opacity: 0.7; }
+
+        .logo-img { height: 40px; width: auto; color: var(--text); }
+
+        .back-link-top {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link-top:hover { color: var(--accent); }
+        .back-link-top::before { content: '←'; font-size: 14px; }
+
+        main {
+            padding: 80px 0 120px;
+        }
+
+        .page-header {
+            margin-bottom: 64px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .page-num::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 1.05;
+            font-variation-settings: "wght" 500;
+        }
+
+        .effective-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light2);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--text);
+            font-variation-settings: "wght" 500;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 0 0 16px 24px;
+            list-style: none;
+        }
+
+        ul li {
+            padding: 6px 0;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        ul li::before {
+            content: '·';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        strong { color: var(--text); font-weight: 600; }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .cookie-table th,
+        .cookie-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .cookie-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cookie-table th {
+            background: var(--bg-warm);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 64px;
+            padding: 16px 28px;
+            background: var(--text);
+            color: var(--text-cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .back-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .back-link::before { content: '←'; font-size: 16px; }
+
+        @media (max-width: 640px) {
+            .container, .topbar-inner { padding: 0 20px; }
+            main { padding: 60px 0 80px; }
+            .page-header { margin-bottom: 48px; }
+            h1 { font-size: 36px; }
+            h2 { font-size: 22px; }
+            .cookie-table th, .cookie-table td { padding: 10px 12px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="logo">
+                <img src="images/malkas_guru_logo.svg" alt="Malkas Guru" class="logo-img">
+            </a>
+            <a href="index.html" class="back-link-top">Atpakaļ</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-num">Juridiskā informācija</span>
+                <h1>Sīkdatņu politika</h1>
+                <p class="effective-date">Pēdējais atjauninājums · 2026. gada augusts</p>
+            </div>
+
+            <section>
+                <h2>1. Kas ir sīkdatnes?</h2>
+                <p>Sīkdatnes ir mazi teksta faili, kas tiek saglabāti jūsu ierīcē, apmeklējot mūsu vietni. Tās palīdz mums atpazīt jūsu ierīci un uzlabot jūsu pieredzi mūsu vietnē.</p>
+            </section>
+
+            <section>
+                <h2>2. Kādas sīkdatnes mēs izmantojam?</h2>
+                <p>Mēs izmantojam šāda veida sīkdatnes:</p>
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Veids</th>
+                            <th>Mērķis</th>
+                            <th>Ilgums</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nepieciešamās</td>
+                            <td>Pamata funkcijas - drošība un tīkla pārvaldība</td>
+                            <td>Sesijas</td>
+                        </tr>
+                        <tr>
+                            <td>Analītiskās</td>
+                            <td>Palīdz saprast, kā apmeklētāji izmanto vietni</td>
+                            <td>Līdz 2 gadiem</td>
+                        </tr>
+                        <tr>
+                            <td>Mārketinga</td>
+                            <td>Personalizēta reklāma (nākotnē)</td>
+                            <td>Līdz 1 gadam</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>3. Sīkdatņu pārvaldība</h2>
+                <p>Jūs varat kontrolēt sīkdatnes savā pārlūkā. Lielākā daļa pārlūku ļauj:</p>
+                <ul>
+                    <li>Skatīt visas sīkdatnes</li>
+                    <li>Dzēst atsevišķas sīkdatnes</li>
+                    <li>Bloķēt trešo pušu sīkdatnes</li>
+                    <li>Bloķēt visu sīkdatņu izmantošanu</li>
+                </ul>
+                <p>Lūdzu, ņemiet vērā, ka, ja jūs bloķēsiet visas sīkdatnes, dažas vietnes funkcijas var nedarboties pareizi.</p>
+            </section>
+
+            <section>
+                <h2>4. Trešo pušu sīkdatnes</h2>
+                <p>Mūsu vietne var saturēt saites uz citām vietnēm. Mēs neesam atbildīgi par šo vietņu privātuma praksēm. Mēs iesakām iepazīties ar šo vietņu privātuma politikām.</p>
+            </section>
+
+            <section>
+                <h2>5. Google Analytics</h2>
+                <p>Mūsu vietne izmanto Google Analytics, lai analizētu vietnes apmeklējumus. Google Analytics izmanto sīkdatnes, lai vāktu informāciju par to, kā jūs izmantojat mūsu vietni.</p>
+                <p>Google Analytics ir iestatīts saskaņā ar Google Privātuma politiku, un mēs izmantojam Google Consent Mode v2, lai nodrošinātu atbilstību GDPR prasībām.</p>
+            </section>
+
+            <section>
+                <h2>6. Google Consent Mode v2</h2>
+                <p>Mēs izmantojam Google Consent Mode v2, kas ļauj mums pielāgot Google pakalpojumu darbību atkarībā no jūsu piekrišanas. Sīkdatņu piekrišanas iestatījumi tiek saglabāti jūsu ierīcē.</p>
+                <ul>
+                    <li><strong>analytics_storage</strong> - atļauj Google Analytics apkopot datus par vietnes apmeklējumu</li>
+                    <li><strong>ad_storage</strong> - atļauj personalizētās reklāmas</li>
+                    <li><strong>ad_user_data</strong> - atļauj personalizēt datus reklāmas nolūkiem</li>
+                    <li><strong>ad_personalization</strong> - atļauj personalizētas reklāmas</li>
+                </ul>
+                <p>Pēc noklusējuma visas vērtības ir iestatītas uz "ierobežots", līdz jūs sniedzat savu piekrišanu.</p>
+            </section>
+
+            <section>
+                <h2>7. Sīkdatņu politikas atjauninājumi</h2>
+                <p>Mēs varam atjaunināt šo sīkdatņu politiku atbilstoši likumdošanai vai mūsu praksēm. Jaunākā versija vienmēr būs pieejama mūsu vietnē.</p>
+            </section>
+
+            <section>
+                <h2>8. Saziņa ar mums</h2>
+                <p>Ja jums ir jautājumi par šo sīkdatņu politiku, lūdzu, sazinieties ar mums:</p>
+                <p>E-pasts: <a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a><br>
+                Tālrunis: <a href="tel:+37126545957">+371 26545957</a></p>
+            </section>
+
+            <a href="index.html" class="back-link">Atgriezties</a>
+        </div>
+    </main>
+</body>
+</html>

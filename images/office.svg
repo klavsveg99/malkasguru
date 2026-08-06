@@ -1,0 +1,29 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Building body (wood tone) -->
+  <rect x="24" y="16" width="80" height="96" rx="10" fill="#C68642"/>
+
+  <!-- Roof (darker wood) -->
+  <rect x="20" y="12" width="88" height="10" rx="5" fill="#9E5B2E"/>
+
+  <!-- Windows (light wood highlight) -->
+  <g fill="#F6E3C5">
+    <rect x="36" y="32" width="14" height="14" rx="3"/>
+    <rect x="57" y="32" width="14" height="14" rx="3"/>
+    <rect x="78" y="32" width="14" height="14" rx="3"/>
+
+    <rect x="36" y="54" width="14" height="14" rx="3"/>
+    <rect x="57" y="54" width="14" height="14" rx="3"/>
+    <rect x="78" y="54" width="14" height="14" rx="3"/>
+
+    <rect x="36" y="76" width="14" height="14" rx="3"/>
+    <rect x="57" y="76" width="14" height="14" rx="3"/>
+    <rect x="78" y="76" width="14" height="14" rx="3"/>
+  </g>
+
+  <!-- Door (deep bark tone) -->
+  <rect x="56" y="94" width="16" height="18" rx="3" fill="#6B3E1E"/>
+
+  <!-- Ground / shadow -->
+  <rect x="16" y="112" width="96" height="6" rx="3" fill="#EAD7B8"/>
+</svg>

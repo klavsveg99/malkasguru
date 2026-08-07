@@ -2520,6 +2520,7 @@ body.cookies-accepted .cookie-consent {
 
     .mobile-menu-toggle {
         display: flex;
+        z-index: 1001;
     }
 
     .lang-switch {

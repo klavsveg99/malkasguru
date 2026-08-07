@@ -2386,21 +2386,13 @@ body.cookies-accepted .cookie-consent {
 /* MOBILE MENU TOGGLE */
 .mobile-menu-toggle {
     display: none;
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    z-index: 1001;
+    align-items: center;
+    gap: 8px;
     background: none;
     border: none;
     padding: 8px;
     cursor: pointer;
-    align-items: center;
-    gap: 8px;
-    transition: top 0.3s ease;
-}
-
-header.sticky .mobile-menu-toggle {
-    top: 18px;
+    transition: opacity 0.2s ease;
 }
 
 .mobile-menu-toggle .menu-text {
@@ -2521,10 +2513,10 @@ header.sticky .mobile-menu-toggle {
 
     nav .header-cta {
         margin-top: 24px;
-        padding: 18px 32px !important;
-        font-size: 14px !important;
-        width: auto;
-        align-self: flex-start;
+        padding: 20px 32px !important;
+        font-size: 18px !important;
+        width: 100%;
+        text-align: center;
     }
 
     .mobile-menu-toggle {
@@ -2693,7 +2685,7 @@ header.sticky .mobile-menu-toggle {
 
     .footer-links {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 12px;
     }
 

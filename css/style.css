@@ -1681,7 +1681,11 @@ nav a:not(.header-cta):hover::after {
     margin: 0 auto;
 }
 
-.cta-section:last-of-type {
+.last-cta-section::before {
+    display: none;
+}
+
+.last-cta-section {
     background: var(--bg-darker);
 }
 

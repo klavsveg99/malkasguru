@@ -936,7 +936,8 @@ nav a:not(.header-cta):hover::after {
 
 .story-image {
     position: relative;
-    aspect-ratio: 4/5;
+    height: 100%;
+    align-self: stretch;
     overflow: hidden;
     border-radius: var(--radius-lg);
 }
@@ -1012,6 +1013,7 @@ nav a:not(.header-cta):hover::after {
 
 .story-feature:last-child {
     border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
 }
 
 .story-feature-icon {
@@ -1261,6 +1263,17 @@ nav a:not(.header-cta):hover::after {
 .process {
     padding: 140px 0;
     background: var(--bg);
+}
+
+.process .section-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.process .section-subtitle {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .process-steps {
@@ -2603,7 +2616,8 @@ body.cookies-accepted .cookie-consent {
     }
 
     .story-image {
-        aspect-ratio: 16/10;
+        height: 480px;
+        max-width: 100%;
     }
 
     .products {

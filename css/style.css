@@ -779,8 +779,10 @@ nav a:not(.header-cta):hover::after {
     color: var(--accent-light);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 4px;
+    font-size: 28px;
+    line-height: 1;
 }
 
 .delivery-promise-icon svg {

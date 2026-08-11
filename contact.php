@@ -29,6 +29,7 @@ $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 $messages = [
     'required' => 'Lūdzu, aizpildiet visus obligātos laukus.',
     'invalid_email' => 'Lūdzu, ievadiet derīgu e-pasta adresi.',
+    'invalid_date' => 'Piegādes datumam jābūt vēlākam par šodienu.',
     'success' => 'Paldies! Jūsu pasūtījums ir saņemts. Mēs sazināsimies ar jums 24 stundu laikā.',
     'error' => 'Kļūda nosūtot ziņojumu. Lūdzu, mēģiniet vēlreiz.'
 ];
@@ -43,6 +44,14 @@ if (empty($name) || empty($email) || empty($phone) || empty($woodType) || empty(
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['success' => false, 'message' => $t['invalid_email']]);
     exit;
+}
+
+if (!empty($deliveryDate)) {
+    $today = date('Y-m-d');
+    if ($deliveryDate <= $today) {
+        echo json_encode(['success' => false, 'message' => $t['invalid_date']]);
+        exit;
+    }
 }
 
 $to = 'info@malkasguru.lv';

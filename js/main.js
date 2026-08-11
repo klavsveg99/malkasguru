@@ -1,5 +1,5 @@
 (function() {
-    const jsVersion = '3';
+    const jsVersion = '4';
     const scripts = document.querySelectorAll('script[src*="main.js"]');
     scripts.forEach(script => {
         const src = script.getAttribute('src').split('?')[0];
@@ -195,6 +195,13 @@ const popupClose = document.getElementById('popupClose');
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 const ctaButtons = document.querySelectorAll('.contact-cta-btn');
+const deliveryDateInput = document.getElementById('deliveryDate');
+
+if (deliveryDateInput) {
+    const t = new Date();
+    t.setDate(t.getDate() + 1);
+    deliveryDateInput.min = t.toISOString().split('T')[0];
+}
 
 function openPopup() {
     contactPopup.classList.add('active');
@@ -268,6 +275,18 @@ document.addEventListener('keydown', (e) => {
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const deliveryDate = (deliveryDateInput && deliveryDateInput.value) ? deliveryDateInput.value : '';
+        if (deliveryDate) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const selected = new Date(deliveryDate + 'T00:00:00');
+            if (selected <= today) {
+                formMessage.textContent = 'Piegādes datumam jābūt vēlākam par šodienu.';
+                formMessage.className = 'form-message error';
+                return;
+            }
+        }
 
         const formData = new FormData(contactForm);
         formData.append('lang', 'lv');

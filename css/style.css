@@ -1012,7 +1012,6 @@ nav a:not(.header-cta):hover::after {
 }
 
 .story-feature:last-child {
-    border-bottom: 1px solid var(--border);
     padding-bottom: 40px;
 }
 
@@ -1021,9 +1020,7 @@ nav a:not(.header-cta):hover::after {
     height: 40px;
     flex-shrink: 0;
     color: var(--accent);
-    font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;

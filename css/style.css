@@ -1437,6 +1437,177 @@ nav a:not(.header-cta):hover::after {
     font-style: italic;
 }
 
+.spec-note {
+    margin-top: 24px !important;
+    font-size: 15px !important;
+    color: var(--text) !important;
+    line-height: 1.6 !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.spec-note.small {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: var(--text-light) !important;
+    background: transparent;
+    border-left: 3px solid var(--border);
+    padding: 12px 16px;
+}
+
+/* GALLERY */
+.gallery {
+    padding: 120px 0;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-light);
+    position: relative;
+}
+
+.gallery::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='60' height='60' rx='2' fill='none' stroke='%2314201a' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    pointer-events: none;
+}
+
+.gallery .container {
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--bg-warm);
+    border: 1px solid var(--border-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: zoom-in;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(20, 32, 26, 0.85));
+    color: var(--text-cream);
+    padding: 40px 20px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    transform: translateY(4px);
+    opacity: 0.95;
+}
+
+.gallery-note {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-light);
+    font-style: italic;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+}
+
+/* Lightbox */
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 26, 20, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 32px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: zoom-out;
+}
+
+.gallery-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+.gallery-lightbox.active img {
+    transform: scale(1);
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.gallery-lightbox-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(90deg);
+}
+
 /* CONTACT */
 .contacts-section {
     padding: 140px 0;
@@ -2674,6 +2845,19 @@ body.cookies-accepted .cookie-consent {
         border-bottom: none;
     }
 
+    .gallery {
+        padding: 80px 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .gallery-item img {
+        height: 260px;
+    }
+
     .contacts-section {
         padding: 80px 0;
     }
@@ -2903,6 +3087,14 @@ body.cookies-accepted .cookie-consent {
     .footer-bottom {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 280px;
     }
 }
 

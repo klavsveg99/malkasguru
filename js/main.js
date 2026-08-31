@@ -1,5 +1,5 @@
 (function() {
-    const jsVersion = '5';
+    const jsVersion = '6';
     const scripts = document.querySelectorAll('script[src*="main.js"]');
     scripts.forEach(script => {
         const src = script.getAttribute('src').split('?')[0];

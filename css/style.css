@@ -218,6 +218,8 @@ header.sticky .header-inner {
     transition: opacity 0.2s ease;
     text-decoration: none;
     cursor: pointer;
+    position: relative;
+    z-index: 1002;
 }
 
 .logo:hover {

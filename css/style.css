@@ -2655,6 +2655,9 @@ body.cookies-accepted .cookie-consent {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         opacity: 0;
         pointer-events: none;
+        /* DEBUG: Add a temporary background to see the element */
+        background-color: rgba(0, 0, 255, 0.1) !important;
+        border: 1px solid blue !important;
     }
 
     nav.active {
@@ -2663,6 +2666,9 @@ body.cookies-accepted .cookie-consent {
         transform: translate(-50%, -50%);
         opacity: 1;
         pointer-events: all;
+        /* DEBUG: Add a temporary background to see when active */
+        background-color: rgba(255, 0, 0, 0.2) !important;
+        border: 2px solid red !important;
     }
 
     nav a {

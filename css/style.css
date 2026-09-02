@@ -2634,7 +2634,7 @@ body.cookies-accepted .cookie-consent {
 
     nav {
         position: fixed;
-        bottom: -200px;
+        bottom: -100vh;
         right: 0;
         width: 90%;
         max-width: 400px;
@@ -2655,7 +2655,7 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav.active {
-        bottom: 20px;
+        bottom: 0;
         opacity: 1;
         pointer-events: all;
     }

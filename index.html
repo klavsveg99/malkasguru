@@ -1,1 +1,838 @@
-﻿Hard refresh the page (Ctrl+Shift+R or Ctrl+F5) to bypass browser cache and see the 2-column mobile menu layout.
+﻿<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="version" content="2.6.2">
+    <title>Malkas Guru - Augstas kvalitātes kamīnmalka ar piegādi Kurzemē</title>
+    <meta name="description" content="Malkas Guru - kvalitatīva kamīnmalka ar piegādi Kurzemē. Sausa malka no ozola, oša, alkšņa un bērza. Pasūtiet tiešsaistē - piegāde līdz 72h.">
+    <meta name="keywords" content="malka, kamīnmalka, malkas piegāde, kamīnmalkas piegāde, malka Rīga, malka Saldus, ozola malka, oša malka, bērza malka, alkšņa malka, malkas cena, sausa malka">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/firewood.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/firewood.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a2920">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Malkas Guru">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/style.css?v=26">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="logo" href="#">
+                <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="22" cy="22" r="13" fill="none" stroke="currentColor" stroke-width="1"/>
+                    <path d="M22 9 L22 35 M12.81 12.81 L31.19 31.19 M12.81 31.19 L31.19 12.81" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Malkas <em>Guru</em></span>
+            </a>
+            <nav id="mainNav">
+                <a href="#par-uznemumu">Par mums</a>
+                <a href="#produkcija">Malka</a>
+                <a href="#kvalitate">Kvalitāte</a>
+                <a href="#piegade">Piegāde</a>
+                <a href="#galerija">Galerija</a>
+                <a href="#kontakti">Kontakti</a>
+                <a href="#" class="contact-cta-btn header-cta">Pasūtīt malku</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span class="menu-text">Menu</span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <section class="hero" id="ievads">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-tagline">Vietējais malkas eksperts</span>
+                <h1>Kvalitatīva malka ar <span class="accent">piegādi</span></h1>
+                <p class="hero-sub">Kvalitatīva kamīnmalka ar piegādi tieši uz jūsu durvīm Kurzemē. Sausa, pareizi uzglabāta malka - gatava kurināšanai uzreiz pēc piegādes.</p>
+                <div class="hero-actions">
+                    <a href="#" class="hero-cta contact-cta-btn">Pasūtīt malku</a>
+                    <a href="#kontakti" class="hero-link">Kontakti <span></span></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-glow"></div>
+                <svg class="hero-animation" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="warmGlow" cx="50%" cy="55%" r="55%">
+                            <stop offset="0%" stop-color="#b85c2e" stop-opacity="0.25"/>
+                            <stop offset="60%" stop-color="#b85c2e" stop-opacity="0.08"/>
+                            <stop offset="100%" stop-color="#b85c2e" stop-opacity="0"/>
+                        </radialGradient>
+                        <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#b85c2e"/>
+                            <stop offset="50%" stop-color="#d4956a"/>
+                            <stop offset="100%" stop-color="#f5efe1" stop-opacity="0.9"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Background glow -->
+                    <circle class="glow" cx="250" cy="280" r="220" fill="url(#warmGlow)"/>
+
+                    <!-- Log cross-section with animated rings -->
+                    <g class="log" transform="translate(250 320)">
+                        <circle r="140" fill="none" stroke="currentColor" stroke-width="1.5" class="ring ring-1" opacity="0.15"/>
+                        <circle r="110" fill="none" stroke="currentColor" stroke-width="1.5" class="ring ring-2" opacity="0.3"/>
+                        <circle r="80" fill="none" stroke="currentColor" stroke-width="1.5" class="ring ring-3" opacity="0.5"/>
+                        <circle r="52" fill="none" stroke="currentColor" stroke-width="1.5" class="ring ring-4" opacity="0.7"/>
+                        <circle r="28" fill="none" stroke="currentColor" stroke-width="1.5" class="ring ring-5" opacity="0.85"/>
+                        <circle r="8" fill="currentColor" class="ring-core" opacity="0"/>
+                    </g>
+
+                    <!-- Flames above the log -->
+                    <g class="flames" transform="translate(250 240)">
+                        <path class="flame flame-outer" d="M0 0 Q-40 -30 -35 -80 Q-20 -130 0 -170 Q20 -130 35 -80 Q40 -30 0 0 Z" fill="url(#flameGrad)" opacity="0"/>
+                        <path class="flame flame-middle" d="M0 0 Q-28 -25 -24 -65 Q-14 -105 0 -140 Q14 -105 24 -65 Q28 -25 0 0 Z" fill="url(#flameGrad)" opacity="0"/>
+                        <path class="flame flame-inner" d="M0 0 Q-16 -20 -14 -50 Q-8 -80 0 -110 Q8 -80 14 -50 Q16 -20 0 0 Z" fill="#f5efe1" opacity="0"/>
+                    </g>
+
+                    <!-- Floating sparks -->
+                    <g class="sparks">
+                        <circle class="spark spark-1" cx="200" cy="160" r="2.5" fill="#d4956a" opacity="0"/>
+                        <circle class="spark spark-2" cx="290" cy="140" r="2" fill="#b85c2e" opacity="0"/>
+                        <circle class="spark spark-3" cx="320" cy="200" r="1.5" fill="#d4956a" opacity="0"/>
+                        <circle class="spark spark-4" cx="180" cy="200" r="2" fill="#b85c2e" opacity="0"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-promise">
+        <div class="delivery-promise-inner">
+                <div class="delivery-promise-header">
+                    <span class="section-num">Piegāde</span>
+                    <h2 class="delivery-promise-title">Malka līdz <span class="accent">jūsu durvīm</span></h2>
+                    <p class="delivery-promise-sub">Piegādājam augstas kvalitātes kamīnmalku tieši uz jūsu mājas slieksni Kurzemē. Ātri, ērti un bez liekas raizēšanās.</p>
+                </div>
+                <div class="delivery-promise-grid">
+                    <div class="delivery-promise-item">
+                        <div class="delivery-promise-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h3>Tieši pie durvīm</h3>
+                        <p>Piegādājam malku tieši uz jūsu mājas vai uzņēmuma adresi - bez liekas nešanas.</p>
+                    </div>
+                    <div class="delivery-promise-item">
+                        <div class="delivery-promise-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3>Piegāde līdz 72h</h3>
+                        <p>Piegāde līdz 72 stundām no pasūtījuma apstiprināšanas.</p>
+                    </div>
+                    <div class="delivery-promise-item">
+                        <div class="delivery-promise-icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <h3>Jebkurš apjoms</h3>
+                        <p>No 2 berkubiem līdz pilnai kravai - pasūtiet tik, cik vajag. Piegāde berkubos vai maisos.</p>
+                    </div>
+                    <div class="delivery-promise-item">
+                        <div class="delivery-promise-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3>Visa Kurzeme</h3>
+                        <p>Piegādājam malku visā Kurzemē - ātri un uzticami.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="trust-bar-inner">
+            <div class="trust-stat">
+                <span class="trust-number">20+</span>
+                <span class="trust-label">Gadu pieredze</span>
+            </div>
+            <div class="trust-stat">
+                <span class="trust-number">1500+</span>
+                <span class="trust-label">berkubi noliktavā</span>
+            </div>
+            <div class="trust-stat">
+                <span class="trust-number">18%</span>
+                <span class="trust-label">Malkas mitrums</span>
+            </div>
+            <div class="trust-stat">
+                <span class="trust-number">72h</span>
+                <span class="trust-label">Piegāde līdz 72h</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="story" id="par-uznemumu">
+        <div class="story-grid">
+            <div class="story-image">
+                <img src="images/trees/ozols.jpeg" alt="Ozola koksne">
+                <span class="story-image-caption">Ozola šķēlums · Latvijas meži</span>
+            </div>
+            <div class="story-content">
+                <span class="section-num">Par mums</span>
+                <h2 class="section-title">Vietējs <span style="font-style:italic;color:var(--accent)">ražotājs</span><br>ar 20 gadu pieredzi</h2>
+                <p>Esam uzņēmums ar vairāk nekā 20 gadu pieredzi kamīnmalkas ražošanā un piegādē. Mūsu ražotne atrodas Saldus novadā, kur no vietējiem Latvijas mežiem top kvalitatīva malka jūsu mājoklim.</p>
+                <p>Mēs ticam, ka labai malkai ir jābūt sausai, pareizi uzglabātai un godīgi pārdotai. Tieši tāpēc ikvienu pasūtījumu apstrādājam ar tādu pašu rūpību - neatkarīgi no tā, vai pasūtāt dažus berkubus vai pilnu kravu.</p>
+                <div class="story-features">
+                    <div class="story-feature">
+                        <div class="story-feature-icon"><i class="fa-solid fa-medal"></i></div>
+                        <div class="story-feature-content">
+                            <h4>20+ gadu pieredze</h4>
+                            <p>Zināšanas un pieredze malkas ražošanā kopš 2005. gada.</p>
+                        </div>
+                    </div>
+                    <div class="story-feature">
+                        <div class="story-feature-icon"><i class="fa-solid fa-industry"></i></div>
+                        <div class="story-feature-content">
+                            <h4>Vietējs ražotājs</h4>
+                            <p>Latvijas meži, Latvijas ražotne, Latvijas darbinieki.</p>
+                        </div>
+                    </div>
+                    <div class="story-feature">
+                        <div class="story-feature-icon"><i class="fa-solid fa-coins"></i></div>
+                        <div class="story-feature-content">
+                            <h4>Godīgas cenas</h4>
+                            <p>Caurskatāma cenu politika bez slēptām izmaksām.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="produkcija">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">Produkcija</span>
+                <h2 class="section-title">Malkas veidi<br>jūsu <span style="font-style:italic;color:var(--accent)">mājoklim</span></h2>
+                <p class="section-subtitle">Četru veidu cietkoksnes malka - katra ar savām īpašībām un pielietojumu. Palīdzēsim izvēlēties piemērotāko jūsu vajadzībām.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <div class="product-num">01</div>
+                        <div class="product-img wood-ash"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Oša malka</h3>
+                        <p>Cietkoksnes augstākā kvalitāte, izcila siltuma atdeve un skaista krāsa.</p>
+                        <ul>
+                            <li>Maksimāla siltuma atdeve</li>
+                            <li>Izturīga pret kaitēkļiem</li>
+                            <li>Dzelteni balta krāsa</li>
+                            <li>Ilgstoša degšana</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <div class="product-num">02</div>
+                        <div class="product-img wood-oak"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Ozola malka</h3>
+                        <p>Klasisks cietkoksnes izvēle ar tumši brūnu kodolkoksni un izcilu noturību.</p>
+                        <ul>
+                            <li>Liela siltuma atdeve</li>
+                            <li>Tumši brūna koksne</li>
+                            <li>Puvuma izturīga</li>
+                            <li>Elegants aromāts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <div class="product-num">03</div>
+                        <div class="product-img wood-alder"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Alkšņa malka</h3>
+                        <p>Gaiši dzeltena koksne, kas deg bez dūmiem un pateicīga ikdienas lietošanai.</p>
+                        <ul>
+                            <li>Gandrīz nedūmo</li>
+                            <li>Liels karstums</li>
+                            <li>Saglabā aromātu</li>
+                            <li>Viegli aizdedzināt</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <div class="product-num">04</div>
+                        <div class="product-img wood-birch"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Bērza malka</h3>
+                        <p>Latvijas klasika - viegli aizdedzināma malka ar ilgu, vienmērīgu liesmu.</p>
+                        <ul>
+                            <li>Viegli aizdedzināt</li>
+                            <li>Ilga liesma</li>
+                            <li>Vidēja siltuma atdeve</li>
+                            <li>Nedzirksteļo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why" id="kvalitate">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">Kvalitāte</span>
+                <h2 class="section-title">Kāpēc izvēlēties<br><span style="font-style:italic;color:var(--accent)">Malkas Guru?</span></h2>
+                <p class="section-subtitle">Mēs garantējam augstāko kvalitāti, pateicoties profesionālām iekārtām un gadu desmitiem uzkrātām zināšanām.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="20" cy="22" r="7"/>
+                            <circle cx="20" cy="22" r="3.5"/>
+                            <line x1="20" y1="4" x2="20" y2="8"/>
+                            <line x1="20" y1="36" x2="20" y2="40"/>
+                            <line x1="4" y1="22" x2="8" y2="22"/>
+                            <line x1="32" y1="22" x2="36" y2="22"/>
+                            <line x1="8" y1="10" x2="11" y2="13"/>
+                            <line x1="29" y1="31" x2="32" y2="34"/>
+                            <line x1="8" y1="34" x2="11" y2="31"/>
+                            <line x1="29" y1="13" x2="32" y2="10"/>
+                        </svg>
+                    </div>
+                    <h4>Sausa malka</h4>
+                    <p>Žāvēšanas kamerās malka tiek žāvēta līdz optimālam 18% mitrumam - gatava kurināšanai uzreiz pēc piegādes.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 4 L32 9 L32 19 C32 28 27 34 20 37 C13 34 8 28 8 19 L8 9 Z"/>
+                            <path d="M14 20 L18 24 L26 15"/>
+                        </svg>
+                    </div>
+                    <h4>Bez kaitēkļiem</h4>
+                    <p>Pareiza žāvēšana izslēdz insektu slimības un kaitēkļus - tīra un droša malka jūsu mājām.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 4 C16 9 12 13 12 20 C12 27 16 32 20 32 C24 32 28 27 28 20 C28 17 26 15 25 13 C24 16 22 17 20 15 C20 11 21 7 20 4 Z"/>
+                            <path d="M16 23 C16 26 18 28 20 28 C22 28 24 26 24 23"/>
+                        </svg>
+                    </div>
+                    <h4>Karstāka uguns</h4>
+                    <p>Cietkoksnes malka ar augstu siltuma atdevi nodrošina efektīvāku apkuri un mazāku patēriņu.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="13" width="18" height="15" rx="1"/>
+                            <path d="M21 18 L28 18 L34 23 L34 28 L21 28"/>
+                            <circle cx="10" cy="31" r="2.5"/>
+                            <circle cx="27" cy="31" r="2.5"/>
+                            <line x1="1" y1="18" x2="3" y2="18"/>
+                            <line x1="1" y1="23" x2="3" y2="23"/>
+                            <line x1="1" y1="28" x2="3" y2="28"/>
+                        </svg>
+                    </div>
+                    <h4>Piegāde līdz 72h</h4>
+                    <p>Piegāde līdz 72 stundām no pasūtījuma apstiprināšanas visā Kurzemē.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="piegade">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">Piegāde</span>
+                <h2 class="section-title">Kā notiek jūsu<br><span style="font-style:italic;color:var(--accent)">pasūtījums</span></h2>
+                <p class="section-subtitle">Trīs vienkārši soļi no pasūtījuma līdz siltumam jūsu mājās.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Pasūtiet</h4>
+                    <p>Aizpildiet pasūtījuma formu vai zvaniet mums. Norādiet vēlamo malkas veidu un daudzumu.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>Sagatavojam</h4>
+                    <p>Mēs atlasām un sagatavojam jūsu pasūtījumu no mūsu noliktavas - svaigu un kvalitatīvu.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Piegādājam</h4>
+                    <p>Piegādājam tieši uz jūsu māju līdz 72 stundu laikā visā Kurzemes teritorijā.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section cta-section-pattern">
+        <div class="cta-box">
+            <h3>Gatavi <span class="accent">pasūtījumam?</span></h3>
+            <p>Saņemiet individuālu piedāvājumu jau šodien. Zvaniet vai aizpildiet formu - atbildēsim ātri.</p>
+            <a href="#" class="hero-cta contact-cta-btn">Pasūtīt malku</a>
+        </div>
+    </section>
+
+    <section class="specs" id="tehniska">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">Tehniskā informācija</span>
+                <h2 class="section-title">Izmēri un<br><span style="font-style:italic;color:var(--accent)">iepakojums</span></h2>
+                <p class="section-subtitle">Malkas izmēri un iepakojuma veidi, kas pielāgoti jūsu vajadzībām.</p>
+            </div>
+
+            <div class="tech-specs">
+                <div class="spec-card">
+                    <h3>Malkas izmēri</h3>
+                    <ul class="spec-list">
+                        <li><span class="label">Garums*</span><span class="value">25 cm, 30 cm, 33 cm</span></li>
+                        <li><span class="label">Diametrs</span><span class="value">no 7 - 14 cm</span></li>
+                    </ul>
+                    <p class="spec-note">Veicot pasūtījumu, malku iespējams sazāģēt garumā pēc klienta vēlmes.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Iepakojums</h3>
+                    <ul class="spec-list">
+                        <li><span class="label">Berkubi</span><span class="value">Beramā veidā (m³)</span></li>
+                        <li><span class="label">Maisi</span><span class="value">18L, 22L un 40L</span></li>
+                    </ul>
+                    <p class="spec-note">Piegāde berkubos beramā veidā ar mazo pašizgāzēju vai maisos - ērti un ātri tieši jūsu sētā.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galerija">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">Galerija</span>
+                <h2 class="section-title">Piegāde ar<br><span style="font-style:italic;color:var(--accent)">mazo pašizgāzēju</span></h2>
+                <p class="section-subtitle">Berkubos vai maisos - ērti un ātri tieši jūsu sētā.</p>
+            </div>
+            <div class="gallery-grid">
+                <figure class="gallery-item">
+                    <img src="images/gallery-delivery-2.jpeg" alt="Malka izkrauta pie šķūņa dārzā" loading="lazy">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/gallery-2.jpeg" alt="Piegādes auto pie Saldus zīmes" loading="lazy">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/gallery-4.jpeg" alt="Pašizgāzējs ar malku no aizmugures" loading="lazy">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/gallery-delivery-1.jpeg" alt="Malka izkrauta klienta sētā pie žoga" loading="lazy">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/gallery-1.jpeg" alt="Malkas krava uz pašizgāzēja pie noliktavas" loading="lazy">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/gallery-3.jpeg" alt="Pašizgāzējs pie BALTBRAND žāvētavas" loading="lazy">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts-section" id="kontakti">
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <span class="section-num">Kontakti</span>
+                    <h2 class="section-title">Sazināties<br>ar <span style="font-style:italic;color:var(--accent)">mums</span></h2>
+                </div>
+
+                <div class="contact-block">
+                    <h4>Tālrunis</h4>
+                    <p><a href="tel:+37126181545">+371 26181545</a></p>
+                </div>
+
+                <div class="contact-block">
+                    <h4>E-pasts</h4>
+                    <p><a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a></p>
+                </div>
+
+                <div class="contact-block">
+                    <h4>Adreses</h4>
+                    <p>Ofiss: Dzirnavu iela 2A, Saldus</p>
+                    <p>Noliktava: Saldus nov., Kursīšu pag., "Ānītes"</p>
+                </div>
+            </div>
+
+            <div class="contact-map-wrap">
+                <div class="map-placeholder" id="map"></div>
+                <div class="map-locations">
+                    <div class="location-card">
+                        <h4>Ofiss</h4>
+                        <p><strong>Dzirnavu iela 2A, Saldus, LV-3801</strong></p>
+                        <p><a href="tel:+37126181545">+371 26181545</a></p>
+                    </div>
+                    <div class="location-card">
+                        <h4>Noliktava</h4>
+                        <p><strong>Saldus nov., Kursīšu pag., "Ānītes", LV-3890</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="work-hours">
+            <h3>Darba laiks</h3>
+            <div class="hours-grid">
+                <div class="hour-item">
+                    <div class="day">Pirmdiena</div>
+                    <div class="time">8:00 - 17:00</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Otrdiena</div>
+                    <div class="time">8:00 - 17:00</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Trešdiena</div>
+                    <div class="time">8:00 - 17:00</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Ceturtdiena</div>
+                    <div class="time">8:00 - 17:00</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Piektdiena</div>
+                    <div class="time">8:00 - 17:00</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Sestdiena</div>
+                    <div class="time">Pēc vienošanās</div>
+                </div>
+                <div class="hour-item weekend">
+                    <div class="day">Svētdiena</div>
+                    <div class="time">Brīvdiena</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section last-cta-section">
+        <div class="cta-box last-cta">
+            <h3>Pasūtiet malku <span class="accent">šodien</span></h3>
+            <p>Zvaniet, rakstiet vai aizpildiet formu - atbildēsim ātri un piedāvāsim labāko risinājumu.</p>
+            <a href="#" class="hero-cta contact-cta-btn">Pasūtīt malku</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <svg class="footer-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="22" cy="22" r="13" fill="none" stroke="currentColor" stroke-width="1"/>
+                        <path d="M22 9 L22 35 M12.81 12.81 L31.19 31.19 M12.81 31.19 L31.19 12.81" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="footer-logo-text">Malkas <em>Guru</em></span>
+                </div>
+                <p class="footer-desc">Kvalitatīva kamīnmalka ar piegādi Kurzemē. Vairāk nekā 20 gadu pieredze malkas ražošanā un piegādē no Saldus novada.</p>
+                <div class="footer-contact">
+                    <a href="tel:+37126181545">+371 26181545</a>
+                    <a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#par-uznemumu">Par mums</a>
+                <a href="#produkcija">Malka</a>
+                <a href="#kvalitate">Kvalitāte</a>
+                <a href="#piegade">Piegāde</a>
+                <a href="#galerija">Galerija</a>
+                <a href="#kontakti">Kontakti</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Malkas Guru 2026 · Made by wip.lv</p>
+            <div class="footer-policies">
+                <a href="privacy-policy.html" target="_blank">Privātuma Politika</a>
+                <a href="cookie-policy.html" target="_blank">Sīkdatņu Politika</a>
+                <a href="#" id="cookieSettings">Sīkdatņu Iestatījumi</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="contact-overlay" id="contactOverlay"></div>
+    <div class="contact-popup" id="contactPopup">
+        <button class="popup-close" id="popupClose">&times;</button>
+        <div class="popup-content">
+            <h2 class="popup-title">Pasūtīt malku</h2>
+            <p class="popup-subtitle">Aizpildiet formu un mēs sazināsimies ar jums līdz 72 stundu laikā. Piegāde līdz 72h no pasūtījuma apstiprināšanas.</p>
+            <div class="form-message" id="formMessage"></div>
+            <form class="popup-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Vārds *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-pasts *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Tālrunis *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="woodType">Malkas veids *</label>
+                    <select id="woodType" name="woodType" required>
+                        <option value="">Izvēlieties malkas veidu</option>
+                        <option value="osis">Oša malka</option>
+                        <option value="ozols">Ozola malka</option>
+                        <option value="alksnis">Alkšņa malka</option>
+                        <option value="berzs">Bērza malka</option>
+                        <option value="jaukta">Jaukta malka</option>
+                        <option value="konsultacija">Nezinu - vajag konsultāciju</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Daudzums (berkubi / maisi) *</label>
+                    <input type="text" id="amount" name="amount" placeholder="piem. 3 berkubi vai 10 maisi" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Piegādes adrese *</label>
+                    <input type="text" id="location" name="location" placeholder="Pilsēta, iela, mājas numurs" required>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryDate">Vēlamais piegādes datums</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate">
+                </div>
+                <div class="form-group">
+                    <label for="message">Papildus informācija</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Īpaši piegādes nosacījumi, vēlamais laiks u.c."></textarea>
+                </div>
+                <button type="submit">Nosūtīt pasūtījumu</button>
+            </form>
+            <div class="popup-contacts">
+                <h3 class="popup-contacts-title">Vai zvaniet</h3>
+                <p><a href="tel:+37126181545">+371 26181545</a></p>
+                <p><a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-lightbox" id="galleryLightbox">
+        <button class="gallery-lightbox-close" id="galleryLightboxClose">&times;</button>
+        <img id="galleryLightboxImg" src="" alt="">
+    </div>
+
+    <script src="js/main.js?v=13"></script>
+    <script>
+        (function() {
+            const lightbox = document.getElementById('galleryLightbox');
+            const lightboxImg = document.getElementById('galleryLightboxImg');
+            const lightboxClose = document.getElementById('galleryLightboxClose');
+            if (!lightbox || !lightboxImg) return;
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            document.querySelectorAll('.gallery-item img').forEach(function(img) {
+                img.addEventListener('click', function() {
+                    openLightbox(img.src, img.alt);
+                });
+            });
+            lightbox.addEventListener('click', closeLightbox);
+            lightboxClose.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+            });
+        })();
+    </script>
+    <script>
+        function initMap() {
+            const locations = [
+                {
+                    lat: 56.660042212888015,
+                    lng: 22.477729927126678,
+                    title: 'Ofiss',
+                    address: 'Dzirnavu iela 2A, Saldus, LV-3801',
+                    phone: '+371 26181545'
+                },
+                {
+                    lat: 56.5189167,
+                    lng: 22.3931944,
+                    title: 'Noliktava',
+                    address: 'Saldus nov., Kursīšu pag., "Ānītes", LV-3890',
+                    phone: ''
+                }
+            ];
+
+            const centerLat = locations.reduce((sum, loc) => sum + loc.lat, 0) / locations.length;
+            const centerLng = locations.reduce((sum, loc) => sum + loc.lng, 0) / locations.length;
+
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: { lat: centerLat, lng: centerLng },
+                styles: [
+                    { elementType: 'geometry', stylers: [{ color: '#f5efe1' }] },
+                    { elementType: 'labels.text.stroke', stylers: [{ color: '#f5efe1' }] },
+                    { elementType: 'labels.text.fill', stylers: [{ color: '#14201a' }] },
+                    { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] },
+                    { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#5a5a55' }] },
+                    { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#a3ccff' }] },
+                    { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#0066cc' }] },
+                    { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'road.highway', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'road.local', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'transit', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'administrative', elementType: 'labels.text.fill', stylers: [{ color: '#5a5a55' }] },
+                    { featureType: 'administrative', elementType: 'geometry.stroke', stylers: [{ color: '#cccccc' }] },
+                    { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{ color: '#888888', weight: 2 }] },
+                    { featureType: 'administrative.country', elementType: 'labels.text.fill', stylers: [{ color: '#666666' }] },
+                    { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{ color: '#aaaaaa', weight: 1 }] },
+                    { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#5a5a55' }] }
+                ]
+            });
+
+            let currentInfoWindow = null;
+
+            function createMarkerIcon(iconType) {
+                const url = iconType === 'office' ? 'images/office.svg' : 'images/wood-log.svg';
+
+                return {
+                    url: url,
+                    scaledSize: new google.maps.Size(48, 48),
+                    anchor: new google.maps.Point(24, 48),
+                };
+            }
+
+            locations.forEach(function(location) {
+                const isOffice = location.title === 'Ofiss';
+                const iconType = isOffice ? 'office' : 'production';
+
+                const marker = new google.maps.Marker({
+                    position: { lat: location.lat, lng: location.lng },
+                    map: map,
+                    title: location.title,
+                    icon: createMarkerIcon(iconType)
+                });
+
+                const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`;
+                const infoContent = `
+                    <div style="font-family: 'Inter', sans-serif; padding: 16px; min-width: 250px;">
+                        <h4 style="margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #b85c2e; text-transform: uppercase; letter-spacing: 0.1em;">${location.title}</h4>
+                        <p style="margin: 0 0 8px; font-size: 14px; color: #14201a;">${location.address}</p>
+                        ${location.phone ? `<p style="margin: 0 0 8px; font-size: 14px;"><a href="tel:${location.phone.replace(/\s/g, '')}" style="color: #b85c2e; text-decoration: none;">${location.phone}</a></p>` : ''}
+                        <p style="margin: 8px 0 0; font-size: 13px;"><a href="${navUrl}" target="_blank" style="color: #b85c2e; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">Google Maps <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+                    </div>
+                `;
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: infoContent
+                });
+
+                marker.addListener('click', () => {
+                    if (currentInfoWindow) {
+                        currentInfoWindow.close();
+                    }
+                    infoWindow.open(map, marker);
+                    map.setCenter(marker.getPosition());
+                    currentInfoWindow = infoWindow;
+                });
+            });
+        }
+
+        (function() {
+             const script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyATvYF62qs3Ow3BAQcIET_FIGu6S-PpOnI&callback=initMap&loading=async';
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+    </script>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>Sīkdatņu iestatījumi</h3>
+                <p>Mēs izmantojam sīkdatnes, lai uzlabotu jūsu pieredzi mūsu vietnē. Mēs cienām jūsu privātumu un ievērojam GDPR.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn reject" id="cookieReject">Noraidīt</button>
+                <button class="cookie-btn accept-all" id="cookieAcceptAll">Pieņemt visu</button>
+                <button class="cookie-btn customize" id="cookieCustomize">Pielāgot</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE PREFERENCES MODAL -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-modal-content">
+            <button class="modal-close" id="cookieModalClose">&times;</button>
+            <h2>Sīkdatņu iestatījumi</h2>
+
+            <div class="cookie-category">
+                <div class="category-header">
+                    <label class="category-toggle">
+                        <input type="checkbox" class="category-checkbox" data-category="necessary" checked disabled>
+                        <span class="toggle-switch"></span>
+                        <span class="category-title">Nepieciešamās sīkdatnes</span>
+                    </label>
+                    <span class="category-badge required">Obligātas</span>
+                </div>
+                <p class="category-description">Nodrošina vietnes pamata funkcionalitāti, drošību un lietotāja sesijas pārvaldību.</p>
+            </div>
+
+            <div class="cookie-category">
+                <div class="category-header">
+                    <label class="category-toggle">
+                        <input type="checkbox" class="category-checkbox" data-category="analytics">
+                        <span class="toggle-switch"></span>
+                        <span class="category-title">Analītikas sīkdatnes</span>
+                    </label>
+                </div>
+                <p class="category-description">Palīdz mums saprast, kā apmeklētāji izmanto mūsu vietni, lai uzlabotu tās darbību.</p>
+            </div>
+
+            <div class="cookie-category">
+                <div class="category-header">
+                    <label class="category-toggle">
+                        <input type="checkbox" class="category-checkbox" data-category="marketing">
+                        <span class="toggle-switch"></span>
+                        <span class="category-title">Mārketinga sīkdatnes</span>
+                    </label>
+                </div>
+                <p class="category-description">Var tikt izmantotas personalizētai reklāmai un mārketinga nolūkiem.</p>
+            </div>
+
+            <div class="cookie-modal-actions">
+                <button class="cookie-btn reject" id="cookieModalReject">Noraidīt</button>
+                <button class="cookie-btn accept-all" id="cookieModalAccept">Pieņemt visu</button>
+                <button class="cookie-btn save" id="cookieModalSave">Saglabāt</button>
+            </div>
+
+            <p class="cookie-legal">
+                <a href="privacy-policy.html" target="_blank">Privātuma Politika</a> •
+                <a href="cookie-policy.html" target="_blank">Sīkdatņu Politika</a>
+            </p>
+        </div>
+        <div class="cookie-modal-overlay" id="cookieModalOverlay"></div>
+    </div>
+</body>
+</html>

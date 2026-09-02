@@ -2638,7 +2638,7 @@ nav {
         left: -100%;
         width: 100%;
         max-width: 400px;
-        height: 100vh;
+        height: auto;
         background: var(--bg);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2649,7 +2649,7 @@ nav {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         gap: 4px;
-        align-items: flex-start;
+        align-items: flex-end;
     }
 
     nav.active {

@@ -2637,7 +2637,7 @@ body.cookies-accepted .cookie-consent {
         top: 0;
         left: -100%;
         width: 100%;
-        height: 100vh;
+        height: auto;
         background: var(--bg);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2664,16 +2664,10 @@ body.cookies-accepted .cookie-consent {
         width: 100%;
         font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
         font-weight: 500;
-        border-bottom: 1px solid var(--border);
+        border: none;
     }
 
-    nav a:nth-child(odd) {
-        border-right: 1px solid var(--border);
-    }
 
-    nav a:last-child {
-        border-bottom: none;
-    }
 
     nav a:not(.header-cta)::after {
         display: none;

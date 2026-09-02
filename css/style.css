@@ -2632,11 +2632,11 @@ body.cookies-accepted .cookie-consent {
         padding: 16px 24px;
     }
 
-nav {
+    nav {
         position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 90%;
+        top: 0;
+        left: -100%;
+        width: 100%;
         max-width: 400px;
         height: auto;
         background: var(--bg);
@@ -2644,17 +2644,16 @@ nav {
         grid-template-columns: 1fr 1fr;
         justify-content: flex-start;
         padding: 24px 16px;
-        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition: left 0.4s ease;
         z-index: 1000;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         gap: 4px;
-        align-items: flex-start;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        pointer-events: none;
-        transform: translate(-50%, -50%) scale(0.96);
+        align-items: flex-end;
+    }
+
+    nav.active {
+        left: 0;
     }
 
     nav.active {

@@ -2634,9 +2634,11 @@ body.cookies-accepted .cookie-consent {
 
     nav {
         position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin: auto !important;
         width: 90% !important;
         max-width: 400px !important;
         height: auto !important;
@@ -2645,7 +2647,7 @@ body.cookies-accepted .cookie-consent {
         grid-template-columns: 1fr 1fr !important;
         justify-content: center !important;
         padding: 24px !important;
-        transition: left 0.4s ease, opacity 0.4s ease !important;
+        transition: opacity 0.4s ease !important;
         z-index: 1000 !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
@@ -2661,13 +2663,17 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav.active {
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin: auto !important;
+        width: 90% !important;
+        max-width: 400px !important;
         opacity: 1 !important;
         pointer-events: all !important;
         /* DEBUG: Make it very obvious when active */
-        background-color: rgba(255, 0, 0, 0.3) !important; /* More visible red */
+        background-color: rgba(255, 0, 0, 0.3) !important;
         border: 3px solid red !important;
     }
 

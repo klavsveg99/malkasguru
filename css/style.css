@@ -2633,42 +2633,42 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 400px;
-        height: auto;
-        background: var(--bg);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        padding: 24px;
-        transition: left 0.4s ease, opacity 0.4s ease;
-        z-index: 1000;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 8px;
-        align-items: flex-start;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        pointer-events: none;
-        /* DEBUG: Add distinctive colors to see positioning */
-        background-color: rgba(0, 0, 255, 0.2) !important; /* Semi-transparent blue */
-        border: 2px dashed blue !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90% !important;
+        max-width: 400px !important;
+        height: auto !important;
+        background: var(--bg) !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        justify-content: center !important;
+        padding: 24px !important;
+        transition: left 0.4s ease, opacity 0.4s ease !important;
+        z-index: 1000 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 8px !important;
+        align-items: flex-start !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        /* DEBUG: Make it very obvious when inactive */
+        background-color: rgba(0, 0, 255, 0.3) !important; /* More visible blue */
+        border: 3px solid blue !important;
     }
 
     nav.active {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 1;
-        pointer-events: all;
-        /* DEBUG: Add distinctive colors to see when active */
-        background-color: rgba(255, 0, 0, 0.2) !important; /* Semi-transparent red */
-        border: 2px dashed red !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+        /* DEBUG: Make it very obvious when active */
+        background-color: rgba(255, 0, 0, 0.3) !important; /* More visible red */
+        border: 3px solid red !important;
     }
 
     nav a {

@@ -2658,10 +2658,11 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav.active {
+        top: 50%;
         left: 50%;
+        transform: translate(-50%, -50%);
         opacity: 1;
         pointer-events: all;
-        background-color: #ff0000 !important;
     }
 
     nav a {

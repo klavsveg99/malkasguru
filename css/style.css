@@ -2638,7 +2638,7 @@ nav {
         left: -100%;
         width: 100%;
         max-width: 400px;
-        height: auto;
+        height: 100vh;
         background: var(--bg);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2654,12 +2654,6 @@ nav {
 
     nav.active {
         left: 0;
-    }
-
-    nav.active {
-        bottom: 20px;
-        opacity: 1;
-        pointer-events: all;
     }
 
     nav a {

@@ -2646,7 +2646,7 @@ body.cookies-accepted .cookie-consent {
         justify-content: flex-start;
         padding: 100px 32px 40px;
         transition: left 0.4s ease;
-        z-index: 1000;
+        z-index: 999;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         gap: 0;

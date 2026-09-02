@@ -2661,6 +2661,7 @@ body.cookies-accepted .cookie-consent {
         left: 50%;
         opacity: 1;
         pointer-events: all;
+        background-color: #ff0000 !important;
     }
 
     nav a {

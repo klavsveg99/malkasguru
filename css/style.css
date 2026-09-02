@@ -2634,11 +2634,9 @@ body.cookies-accepted .cookie-consent {
 
     nav {
         position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        margin: auto !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
         width: 90% !important;
         max-width: 400px !important;
         height: auto !important;
@@ -2657,23 +2655,17 @@ body.cookies-accepted .cookie-consent {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
         opacity: 0 !important;
         pointer-events: none !important;
-        /* DEBUG: Make it very obvious when inactive */
-        background-color: rgba(0, 0, 255, 0.3) !important; /* More visible blue */
+        background-color: rgba(0, 0, 255, 0.4) !important;
         border: 3px solid blue !important;
     }
 
     nav.active {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        margin: auto !important;
-        width: 90% !important;
-        max-width: 400px !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
         opacity: 1 !important;
         pointer-events: all !important;
-        /* DEBUG: Make it very obvious when active */
-        background-color: rgba(255, 0, 0, 0.3) !important;
+        background-color: rgba(255, 0, 0, 0.4) !important;
         border: 3px solid red !important;
     }
 

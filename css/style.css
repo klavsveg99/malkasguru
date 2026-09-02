@@ -2639,7 +2639,8 @@ body.cookies-accepted .cookie-consent {
         width: 100%;
         height: 100vh;
         background: var(--bg);
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         justify-content: flex-start;
         padding: 100px 32px 40px;
         transition: left 0.4s ease;
@@ -2655,14 +2656,19 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav a {
-        display: block;
+        display: flex;
+        align-items: center;
         text-align: left;
-        padding: 20px 0;
-        font-size: 24px;
+        padding: 20px 12px 20px 0;
+        font-size: 22px;
         width: 100%;
         font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
         font-weight: 500;
         border-bottom: 1px solid var(--border);
+    }
+
+    nav a:nth-child(odd) {
+        border-right: 1px solid var(--border);
     }
 
     nav a:last-child {
@@ -2674,11 +2680,13 @@ body.cookies-accepted .cookie-consent {
     }
 
     nav .header-cta {
-        margin-top: 24px;
-        padding: 20px 32px !important;
+        grid-column: 1 / -1;
+        margin-top: 12px;
+        padding: 18px 32px !important;
         font-size: 18px !important;
         width: 100%;
         text-align: center;
+        justify-content: center;
     }
 
     .mobile-menu-toggle {

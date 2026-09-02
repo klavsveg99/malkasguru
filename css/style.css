@@ -2634,9 +2634,9 @@ body.cookies-accepted .cookie-consent {
 
 nav {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 90%;
+        top: 0;
+        left: -100%;
+        width: 100%;
         max-width: 400px;
         height: auto;
         background: var(--bg);
@@ -2644,21 +2644,16 @@ nav {
         grid-template-columns: 1fr 1fr;
         justify-content: flex-start;
         padding: 24px 16px;
-        transition: transform 0.4s ease, opacity 0.4s ease;
+        transition: left 0.4s ease;
         z-index: 1000;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         gap: 4px;
-        align-items: flex-end;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(150%);
+        align-items: flex-start;
     }
 
     nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
+        left: 0;
     }
 
     nav.active {

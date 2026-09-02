@@ -2642,12 +2642,12 @@ body.cookies-accepted .cookie-consent {
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-content: flex-start;
-        padding: 100px 32px 40px;
+        padding: 96px 24px 40px;
         transition: left 0.4s ease;
         z-index: 1000;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
+        gap: 16px;
         align-items: flex-start;
     }
 
@@ -2658,21 +2658,28 @@ body.cookies-accepted .cookie-consent {
     nav a {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         text-align: left;
-        padding: 20px 12px 20px 0;
-        font-size: 22px;
+        padding: 16px 20px;
+        font-size: 20px;
         width: 100%;
         font-family: 'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
         font-weight: 500;
-        border-bottom: 1px solid var(--border);
+        border-radius: 12px;
+        background-color: transparent;
+        transition: all 0.2s ease;
+        border: none;
     }
 
-    nav a:nth-child(odd) {
-        border-right: 1px solid var(--border);
+    nav a:hover,
+    nav a:focus-visible {
+        background-color: var(--bg-soft);
+        outline: none;
     }
 
-    nav a:last-child {
-        border-bottom: none;
+    nav a:active {
+        background-color: var(--bg);
+        transform: translateY(1px);
     }
 
     nav a:not(.header-cta)::after {
@@ -2681,12 +2688,29 @@ body.cookies-accepted .cookie-consent {
 
     nav .header-cta {
         grid-column: 1 / -1;
-        margin-top: 12px;
-        padding: 18px 32px !important;
+        margin-top: 24px;
+        padding: 18px 24px !important;
         font-size: 18px !important;
         width: 100%;
         text-align: center;
         justify-content: center;
+        border-radius: 12px;
+        font-weight: 600;
+        background-color: var(--accent);
+        color: var(--text-on-accent);
+        transition: all 0.2s ease;
+    }
+
+    nav .header-cta:hover,
+    nav .header-cta:focus-visible {
+        background-color: var(--accent-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(184, 92, 46, 0.3);
+    }
+
+    nav .header-cta:active {
+        transform: translateY(1px);
+        box-shadow: none;
     }
 
     .mobile-menu-toggle {

@@ -205,27 +205,122 @@ const formMessage = document.getElementById('formMessage');
 const ctaButtons = document.querySelectorAll('.contact-cta-btn');
 const deliveryDateInput = document.getElementById('deliveryDate');
 
-function isSunday(dateStr) {
-    const d = new Date(dateStr + 'T00:00:00');
-    return d.getDay() === 0;
+function isSunday(date) {
+    return date.getDay() === 0;
 }
 
-if (deliveryDateInput) {
-    const t = new Date();
-    t.setDate(t.getDate() + 2);
-    deliveryDateInput.min = t.toISOString().split('T')[0];
+// ---- Custom delivery date picker ----
+(function() {
+    const FIELD = 'deliveryDateField';
+    const HIDDEN = 'deliveryDate';
+    const field = document.getElementById(FIELD);
+    const hidden = document.getElementById(HIDDEN);
+    if (!field) return;
 
-    deliveryDateInput.addEventListener('change', () => {
-        if (deliveryDateInput.value && isSunday(deliveryDateInput.value)) {
-            deliveryDateInput.value = '';
-            formMessage.textContent = 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.';
-            formMessage.className = 'form-message error';
-        } else if (formMessage.classList.contains('error')) {
-            formMessage.textContent = '';
-            formMessage.className = '';
+    let minDate = new Date();
+    minDate.setDate(minDate.getDate() + 2);
+    minDate.setHours(0, 0, 0, 0);
+
+    const popup = document.getElementById('datepickerPopup');
+    const title = document.getElementById('datepickerTitle');
+    const grid = document.getElementById('datepickerGrid');
+    const prevBtn = document.getElementById('datepickerPrev');
+    const nextBtn = document.getElementById('datepickerNext');
+
+    const LATV = ['Pirmdiena','Otrdiena','Trešdiena','Ceturtdiena','Piektdiena','Sestdiena','Svētdiena'];
+    const MONTH = ['Janvāris','Februāris','Marts','Aprīlis','Maijs','Jūnijs','Jūlijs','Augusts','Septembris','Oktobris','Novembris','Decembris'];
+
+    let view = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
+
+    function fmt(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + day;
+    }
+
+    function sameDay(a, b) {
+        return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    }
+
+    function render() {
+        title.textContent = MONTH[view.getMonth()] + ' ' + view.getFullYear();
+        grid.innerHTML = '';
+        const first = new Date(view.getFullYear(), view.getMonth(), 1);
+        // Monday-first: getDay() 0=Sun..6=Sat -> index in week (Mon-first)
+        let lead = (first.getDay() + 6) % 7;
+        const daysInMonth = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+
+        for (let i = 0; i < lead; i++) {
+            const empty = document.createElement('div');
+            empty.className = 'datepicker-cell empty';
+            grid.appendChild(empty);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            const date = new Date(view.getFullYear(), view.getMonth(), d);
+            const cell = document.createElement('button');
+            cell.type = 'button';
+            cell.textContent = d;
+            cell.className = 'datepicker-cell';
+            const disabled = isSunday(date) || date < minDate;
+            if (disabled) {
+                cell.classList.add('disabled');
+                cell.disabled = true;
+            } else {
+                if (hidden.value && sameDay(date, new Date(hidden.value + 'T00:00:00'))) {
+                    cell.classList.add('selected');
+                }
+                cell.addEventListener('click', () => {
+                    hidden.value = fmt(date);
+                    field.value = fmt(date) + ' (' + LATV[date.getDay() === 0 ? 6 : date.getDay() - 1] + ')';
+                    closePopup();
+                    if (formMessage.classList.contains('error')) {
+                        formMessage.textContent = '';
+                        formMessage.className = '';
+                    }
+                });
+            }
+            grid.appendChild(cell);
+        }
+    }
+
+    function openPopup() {
+        popup.classList.add('active');
+        render();
+    }
+
+    function closePopup() {
+        popup.classList.remove('active');
+    }
+
+    field.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (popup.classList.contains('active')) {
+            closePopup();
+        } else {
+            openPopup();
         }
     });
-}
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        view.setMonth(view.getMonth() - 1);
+        render();
+    });
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        view.setMonth(view.getMonth() + 1);
+        render();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.datepicker-popup') && !e.target.closest('#deliveryDateField')) {
+            closePopup();
+        }
+    });
+})();
+
 
 function openPopup() {
     contactPopup.classList.add('active');
@@ -302,7 +397,8 @@ if (contactForm) {
 
         const deliveryDate = (deliveryDateInput && deliveryDateInput.value) ? deliveryDateInput.value : '';
         if (deliveryDate) {
-            if (isSunday(deliveryDate)) {
+            const selected = new Date(deliveryDate + 'T00:00:00');
+            if (isSunday(selected)) {
                 formMessage.textContent = 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.';
                 formMessage.className = 'form-message error';
                 return;
@@ -310,7 +406,6 @@ if (contactForm) {
             const t = new Date();
             t.setDate(t.getDate() + 2);
             t.setHours(0, 0, 0, 0);
-            const selected = new Date(deliveryDate + 'T00:00:00');
             if (selected < t) {
                 formMessage.textContent = 'Piegādes datumam jābūt vismaz 2 dienas vēlāk.';
                 formMessage.className = 'form-message error';

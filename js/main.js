@@ -1,12 +1,3 @@
-(function() {
-    const jsVersion = '9';
-    const scripts = document.querySelectorAll('script[src*="main.js"]');
-    scripts.forEach(script => {
-        const src = script.getAttribute('src').split('?')[0];
-        script.src = src + '?v=' + jsVersion;
-    });
-})();
-
 // GOOGLE CONSENT MODE v2 - Default denied
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
@@ -32,12 +23,12 @@ function loadGoogleAnalytics() {
     script.onload = function() {
         gtag('js', new Date());
         gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });
+        gtag('event', 'page_view');
     };
     document.head.appendChild(script);
 }
 
 const COOKIE_CONSENT_KEY = 'malkasguru_cookie_consent';
-const COOKIE_PREFERENCES_KEY = 'malkasguru_cookie_preferences';
 const COOKIE_EXPIRY_DAYS = 365;
 
 class CookieConsent {
@@ -124,13 +115,12 @@ class CookieConsent {
     }
 
     getPreferences() {
-        const cookie = document.cookie.split('; ').find(row => row.startsWith(COOKIE_PREFERENCES_KEY + '='));
-        if (!cookie) return { analytics: false, marketing: false };
-        try {
-            return JSON.parse(decodeURIComponent(cookie.split('=')[1]));
-        } catch (e) {
-            return { analytics: false, marketing: false };
-        }
+        const consent = this.getConsent();
+        if (!consent) return { analytics: false, marketing: false };
+        return {
+            analytics: consent.analytics || false,
+            marketing: consent.marketing || false
+        };
     }
 
     savePreferences() {
@@ -166,7 +156,6 @@ class CookieConsent {
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + COOKIE_EXPIRY_DAYS);
         document.cookie = COOKIE_CONSENT_KEY + '=' + encodeURIComponent(JSON.stringify(consent)) + '; expires=' + expiryDate.toUTCString() + '; path=/; SameSite=Lax';
-        document.cookie = COOKIE_PREFERENCES_KEY + '=' + encodeURIComponent(JSON.stringify(preferences)) + '; expires=' + expiryDate.toUTCString() + '; path=/; SameSite=Lax';
         this.updateGoogleConsent(consent);
     }
 
@@ -180,9 +169,6 @@ class CookieConsent {
             'ad_user_data': consent.marketing ? 'granted' : 'denied',
             'ad_personalization': consent.marketing ? 'granted' : 'denied'
         });
-        if (consent.analytics && gaLoaded) {
-            gtag('event', 'page_view');
-        }
     }
 
     applyConsent(consent) {
@@ -194,7 +180,7 @@ let lastScroll = 0;
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    const currentScroll = window.scrollY;
 
     if (currentScroll > 100) {
         if (currentScroll > lastScroll) {

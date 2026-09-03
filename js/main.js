@@ -221,7 +221,7 @@ const deliveryDateInput = document.getElementById('deliveryDate');
 
 if (deliveryDateInput) {
     const t = new Date();
-    t.setDate(t.getDate() + 1);
+    t.setDate(t.getDate() + 2);
     deliveryDateInput.min = t.toISOString().split('T')[0];
 }
 
@@ -300,11 +300,12 @@ if (contactForm) {
 
         const deliveryDate = (deliveryDateInput && deliveryDateInput.value) ? deliveryDateInput.value : '';
         if (deliveryDate) {
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
+            const t = new Date();
+            t.setDate(t.getDate() + 2);
+            t.setHours(0, 0, 0, 0);
             const selected = new Date(deliveryDate + 'T00:00:00');
-            if (selected <= today) {
-                formMessage.textContent = 'Piegādes datumam jābūt vēlākam par šodienu.';
+            if (selected < t) {
+                formMessage.textContent = 'Piegādes datumam jābūt vismaz 2 dienas vēlāk.';
                 formMessage.className = 'form-message error';
                 return;
             }

@@ -30,6 +30,7 @@ $messages = [
     'required' => 'Lūdzu, aizpildiet visus obligātos laukus.',
     'invalid_email' => 'Lūdzu, ievadiet derīgu e-pasta adresi.',
     'invalid_date' => 'Piegādes datumam jābūt vēlākam par šodienu.',
+    'sunday_date' => 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.',
     'success' => 'Paldies! Jūsu pasūtījums ir saņemts. Mēs sazināsimies ar jums līdz 72 stundu laikā.',
     'error' => 'Kļūda nosūtot ziņojumu. Lūdzu, mēģiniet vēlreiz.'
 ];
@@ -50,6 +51,10 @@ if (!empty($deliveryDate)) {
     $today = date('Y-m-d');
     if ($deliveryDate <= $today) {
         echo json_encode(['success' => false, 'message' => $t['invalid_date']]);
+        exit;
+    }
+    if (date('w', strtotime($deliveryDate)) == 0) {
+        echo json_encode(['success' => false, 'message' => $t['sunday_date']]);
         exit;
     }
 }

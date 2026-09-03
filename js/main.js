@@ -1,5 +1,5 @@
 (function() {
-    const jsVersion = '8';
+    const jsVersion = '9';
     const scripts = document.querySelectorAll('script[src*="main.js"]');
     scripts.forEach(script => {
         const src = script.getAttribute('src').split('?')[0];
@@ -219,10 +219,26 @@ const formMessage = document.getElementById('formMessage');
 const ctaButtons = document.querySelectorAll('.contact-cta-btn');
 const deliveryDateInput = document.getElementById('deliveryDate');
 
+function isSunday(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.getDay() === 0;
+}
+
 if (deliveryDateInput) {
     const t = new Date();
     t.setDate(t.getDate() + 2);
     deliveryDateInput.min = t.toISOString().split('T')[0];
+
+    deliveryDateInput.addEventListener('change', () => {
+        if (deliveryDateInput.value && isSunday(deliveryDateInput.value)) {
+            deliveryDateInput.value = '';
+            formMessage.textContent = 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.';
+            formMessage.className = 'form-message error';
+        } else if (formMessage.classList.contains('error')) {
+            formMessage.textContent = '';
+            formMessage.className = '';
+        }
+    });
 }
 
 function openPopup() {
@@ -300,6 +316,11 @@ if (contactForm) {
 
         const deliveryDate = (deliveryDateInput && deliveryDateInput.value) ? deliveryDateInput.value : '';
         if (deliveryDate) {
+            if (isSunday(deliveryDate)) {
+                formMessage.textContent = 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.';
+                formMessage.className = 'form-message error';
+                return;
+            }
             const t = new Date();
             t.setDate(t.getDate() + 2);
             t.setHours(0, 0, 0, 0);

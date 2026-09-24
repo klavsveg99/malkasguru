@@ -12,7 +12,17 @@ gtag('consent', 'default', {
 
 const GA_MEASUREMENT_ID = 'G-KNQMSS9LHQ';
 const GOOGLE_ADS_ID = 'AW-18236607194';
+const ADS_CONVERSIONS = {
+    form: '0vUKCJW1k4QdENqV8vdD',
+    call: '7HJgCJu1k4QdENqV8vdD',
+    email: 'Ff4gCJ61k4QdENqV8vdD'
+};
 let gaLoaded = false;
+
+function trackAdsConversion(type) {
+    const label = ADS_CONVERSIONS[type];
+    if (label) gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/' + label });
+}
 
 function loadGoogleAnalytics() {
     if (gaLoaded) return;
@@ -436,6 +446,7 @@ if (contactForm) {
                 });
                 gtag('event', 'generate_lead');
                 gtag('event', 'conversion_event_submit_lead_form');
+                trackAdsConversion('form');
                 contactForm.reset();
                 contactForm.style.display = 'none';
             }
@@ -491,12 +502,14 @@ document.querySelectorAll(revealSelector).forEach(el => {
 document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => {
         gtag('event', 'click_to_call');
+        trackAdsConversion('call');
     });
 });
 
 document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.addEventListener('click', () => {
         gtag('event', 'email_click');
+        trackAdsConversion('email');
     });
 });
 

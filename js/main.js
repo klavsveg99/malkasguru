@@ -460,20 +460,30 @@ if (footerLogo) {
     footerLogo.addEventListener('click', scrollToTop);
 }
 
-const animatedElements = document.querySelectorAll('.section, footer, .cta-section, .features-grid, .quality-grid, .products-grid, .logistics-grid, .contacts-grid, .stat-item, .feature-card, .quality-item, .product-card, .logistics-card, .contact-card, .hours-card, .tech-specs, .spec-card, .cta-box, .map-placeholder, .map-locations, .hero-inner, .delivery-promise-inner, .delivery-promise-item, .story-content, .story-image');
+// SCROLL REVEAL - adds .reveal to blocks and .is-visible when they enter
+// the viewport (CSS handles the actual transition; no paused animations)
+document.documentElement.classList.add('js');
 
-const observer = new IntersectionObserver((entries) => {
+const revealSelector = 'section:not(.hero), footer, .delivery-promise-inner, .delivery-promise-item, .trust-bar-inner, .story-grid, .story-image, .story-content, .section-header, .products-grid, .product-card, .why-grid, .why-item, .process-steps, .step, .cta-box, .tech-specs, .spec-card, .gallery-grid, .gallery-item, .contacts-grid, .contact-info, .contact-block, .contact-map-wrap, .map-placeholder, .map-locations, .work-hours';
+
+const revealObserver = new IntersectionObserver((entries) => {
+    let delay = 0;
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-            entry.target.style.opacity = '1';
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (delay > 0) {
+            el.style.transitionDelay = delay + 'ms';
+            el.addEventListener('transitionend', () => { el.style.transitionDelay = ''; }, { once: true });
         }
+        el.classList.add('is-visible');
+        revealObserver.unobserve(el);
+        delay = Math.min(delay + 70, 350);
     });
-}, { threshold: 0.1 });
+}, { rootMargin: '0px 0px -60px 0px' });
 
-animatedElements.forEach(el => {
-    el.style.animationPlayState = 'paused';
-    observer.observe(el);
+document.querySelectorAll(revealSelector).forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
 });
 
 document.querySelectorAll('a[href^="tel:"]').forEach(link => {

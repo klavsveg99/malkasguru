@@ -11,6 +11,7 @@ gtag('consent', 'default', {
 });
 
 const GA_MEASUREMENT_ID = 'G-KNQMSS9LHQ';
+const GOOGLE_ADS_ID = 'AW-18236607194';
 let gaLoaded = false;
 
 function loadGoogleAnalytics() {
@@ -23,6 +24,7 @@ function loadGoogleAnalytics() {
     script.onload = function() {
         gtag('js', new Date());
         gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });
+        gtag('config', GOOGLE_ADS_ID);
         gtag('event', 'page_view');
     };
     document.head.appendChild(script);

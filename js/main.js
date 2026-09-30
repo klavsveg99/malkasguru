@@ -214,6 +214,7 @@ const contactOverlay = document.getElementById('contactOverlay');
 const popupClose = document.getElementById('popupClose');
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
+const RECAPTCHA_SITE_KEY = '6Lc0TdgtAAAAAJ_64MG2UFsI0GecsYA6tgnlizIo';
 const ctaButtons = document.querySelectorAll('.contact-cta-btn');
 const deliveryDateInput = document.getElementById('deliveryDate');
 
@@ -427,6 +428,26 @@ if (contactForm) {
 
         const formData = new FormData(contactForm);
         formData.append('lang', 'lv');
+
+        let recaptchaToken = '';
+        try {
+            recaptchaToken = await new Promise((resolve, reject) => {
+                if (!window.grecaptcha || !grecaptcha.enterprise) {
+                    reject(new Error('reCAPTCHA not loaded'));
+                    return;
+                }
+                grecaptcha.enterprise.ready(() => {
+                    grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' })
+                        .then(resolve)
+                        .catch(reject);
+                });
+            });
+        } catch (error) {
+            formMessage.textContent = 'Neizdevās pārbaudīt, ka neesat robots. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.';
+            formMessage.className = 'form-message error';
+            return;
+        }
+        formData.append('recaptchaToken', recaptchaToken);
 
         try {
             const response = await fetch('contact.php', {

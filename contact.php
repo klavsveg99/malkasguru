@@ -8,6 +8,7 @@ $smtpHost = $cfg['smtpHost'];
 $smtpUser = $cfg['smtpUser'];
 $smtpPass = $cfg['smtpPass'];
 $smtpPort = $cfg['smtpPort'];
+$recaptchaSecret = $cfg['recaptchaSecret'] ?? '';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -15,6 +16,45 @@ use PHPMailer\PHPMailer\Exception;
 
 function sanitize($data) {
     return htmlspecialchars(stripslashes(trim($data)));
+}
+
+function verifyRecaptcha($secret, $token, $remoteIp) {
+    if (empty($secret) || empty($token)) {
+        return false;
+    }
+
+    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => http_build_query([
+            'secret' => $secret,
+            'response' => $token,
+            'remoteip' => $remoteIp,
+        ]),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+    ]);
+    $response = curl_exec($ch);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+
+    // Fail open when Google is unreachable so a reCAPTCHA outage does not block real orders.
+    if ($response === false) {
+        error_log('reCAPTCHA request failed: ' . $curlError);
+        return true;
+    }
+
+    $data = json_decode($response, true);
+    if (!is_array($data)) {
+        error_log('reCAPTCHA invalid response: ' . $response);
+        return true;
+    }
+
+    if (empty($data['success']) || ($data['action'] ?? '') !== 'contact_form') {
+        return false;
+    }
+
+    return (float) ($data['score'] ?? 0) >= 0.5;
 }
 
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
@@ -32,6 +72,7 @@ $messages = [
     'invalid_date' => 'Piegādes datumam jābūt vēlākam par šodienu.',
     'sunday_date' => 'Svētdienās piegāde netiek veikta. Lūdzu, izvēlieties citu dienu.',
     'success' => 'Paldies! Jūsu pasūtījums ir saņemts. Mēs sazināsimies ar jums līdz 72 stundu laikā.',
+    'captcha_failed' => 'Lūdzu, apstipriniet, ka neesat robots, un mēģiniet vēlreiz.',
     'error' => 'Kļūda nosūtot ziņojumu. Lūdzu, mēģiniet vēlreiz.'
 ];
 
@@ -57,6 +98,11 @@ if (!empty($deliveryDate)) {
         echo json_encode(['success' => false, 'message' => $t['sunday_date']]);
         exit;
     }
+}
+
+if (!verifyRecaptcha($recaptchaSecret, $_POST['recaptchaToken'] ?? '', $_SERVER['REMOTE_ADDR'] ?? '')) {
+    echo json_encode(['success' => false, 'message' => $t['captcha_failed']]);
+    exit;
 }
 
 $to = 'info@malkasguru.lv';

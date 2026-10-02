@@ -3242,3 +3242,8 @@ body.cookies-accepted .cookie-consent {
 .hero-wrapper {
     display: none;
 }
+
+/* Hide the reCAPTCHA badge */
+.grecaptcha-badge {
+    visibility: hidden !important;
+}

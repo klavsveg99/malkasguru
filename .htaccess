@@ -29,6 +29,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Canonical host: www -> non-www
+    RewriteCond %{HTTP_HOST} ^www\.malkasguru\.lv$ [NC]
+    RewriteRule ^(.*)$ https://malkasguru.lv/$1 [R=301,L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^css/style\.css$ /css/style.css [L]

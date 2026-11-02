@@ -1886,13 +1886,14 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 56px;
     margin-bottom: 60px;
     max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 32px;
+    align-items: start;
 }
 
 .footer-links {
@@ -3246,4 +3247,378 @@ body.cookies-accepted .cookie-consent {
 /* Hide the reCAPTCHA badge */
 .grecaptcha-badge {
     visibility: hidden !important;
+}
+
+/* ============================================================
+   CONTENT PAGES (malkas veidi, piegāde, cenas)
+   ============================================================ */
+.page-hero {
+    padding: 150px 0 72px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.page-hero .container {
+    max-width: 900px;
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light2);
+    margin-bottom: 28px;
+}
+
+.breadcrumbs a {
+    color: var(--text-light2);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--accent);
+}
+
+.breadcrumbs [aria-current="page"] {
+    color: var(--text);
+}
+
+.page-title {
+    font-family: 'Spectral', serif;
+    font-size: clamp(32px, 4.4vw, 54px);
+    font-weight: 500;
+    line-height: 1.07;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    color: var(--text);
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.page-phone {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.page-phone:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.page-lead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-light);
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.page-body {
+    padding: 72px 0;
+}
+
+.page-body .container {
+    max-width: 900px;
+}
+
+.prose {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+}
+
+.prose > * + * {
+    margin-top: 20px;
+}
+
+.prose h2 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-top: 52px;
+}
+
+.prose h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 32px;
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 22px;
+}
+
+.prose li + li {
+    margin-top: 8px;
+}
+
+.prose a {
+    color: var(--accent-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.prose a:hover {
+    color: var(--accent);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 28px;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    margin-top: 28px;
+}
+
+.table-scroll .data-table {
+    margin-top: 0;
+}
+
+.data-table th,
+.data-table td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+}
+
+.data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light2);
+    font-weight: 500;
+}
+
+.table-note {
+    font-size: 14px;
+    color: var(--text-light2);
+}
+
+.faq {
+    margin-top: 52px;
+    border-top: 1px solid var(--border-light);
+}
+
+.faq details {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.faq summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: '+';
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 18px;
+    line-height: 1;
+}
+
+.faq details[open] summary::after {
+    content: '-';
+}
+
+.faq p {
+    padding-bottom: 20px;
+    color: var(--text-light);
+    max-width: 760px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.related-block {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border-light);
+}
+
+.related-block h2 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(24px, 2.6vw, 30px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 8px;
+}
+
+.related-card {
+    display: block;
+    padding: 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.related-card span {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light2);
+    margin-bottom: 8px;
+}
+
+.related-card strong {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.related-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.product-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color: var(--accent-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.product-more::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m13 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat center / contain;
+    transition: transform 0.2s ease;
+}
+
+.product-more:hover {
+    color: var(--accent);
+}
+
+.product-more:hover::after {
+    transform: translateX(4px);
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-cream-soft);
+    margin-bottom: 6px;
+}
+
+.footer-col a {
+    color: var(--text-cream-soft);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--accent-light);
+}
+
+@media (max-width: 900px) {
+    .page-hero {
+        padding: 120px 0 56px;
+    }
+
+    .page-body {
+        padding: 56px 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-hero {
+        padding: 110px 0 48px;
+    }
+
+    .page-lead {
+        font-size: 16px;
+    }
+
+    .prose {
+        font-size: 16px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
 }

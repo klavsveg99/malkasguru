@@ -30,9 +30,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="css/style.css?v=20261002">
+    <link rel="stylesheet" href="css/style.css?v=20261103">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc0TdgtAAAAAJ_64MG2UFsI0GecsYA6tgnlizIo"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://malkasguru.lv/#business",
+        "name": "Malkas Guru",
+        "legalName": "SIA Gude",
+        "url": "https://malkasguru.lv/",
+        "image": "https://malkasguru.lv/images/firewood.png",
+        "logo": "https://malkasguru.lv/images/favicon-512.png",
+        "description": "Sausa un skaldīta malka ar piegādi Kurzemē. Ozola, oša, alkšņa un bērza malka no Saldus novada ražotnes.",
+        "telephone": "+371 26181545",
+        "email": "info@malkasguru.lv",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dzirnavu iela 2A",
+            "addressLocality": "Saldus",
+            "postalCode": "LV-3801",
+            "addressRegion": "Saldus novads",
+            "addressCountry": "LV"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "17:00"
+            }
+        ],
+        "areaServed": [
+            { "@type": "City", "name": "Saldus" },
+            { "@type": "City", "name": "Kuldīga" },
+            { "@type": "City", "name": "Ventspils" },
+            { "@type": "City", "name": "Talsi" },
+            { "@type": "City", "name": "Liepāja" },
+            { "@type": "City", "name": "Tukums" },
+            { "@type": "AdministrativeArea", "name": "Kurzeme" }
+        ],
+        "sameAs": ["https://www.gude.lv/"]
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -243,6 +286,7 @@
                             <li>Dzelteni balta krāsa</li>
                             <li>Ilgstoša degšana</li>
                         </ul>
+                        <a class="product-more" href="osa-malka.html">Vairāk par oša malku</a>
                     </div>
                 </div>
 
@@ -260,6 +304,7 @@
                             <li>Puvuma izturīga</li>
                             <li>Elegants aromāts</li>
                         </ul>
+                        <a class="product-more" href="ozola-malka.html">Vairāk par ozola malku</a>
                     </div>
                 </div>
 
@@ -277,6 +322,7 @@
                             <li>Saglabā aromātu</li>
                             <li>Viegli aizdedzināt</li>
                         </ul>
+                        <a class="product-more" href="alksna-malka.html">Vairāk par alkšņa malku</a>
                     </div>
                 </div>
 
@@ -294,6 +340,7 @@
                             <li>Vidēja siltuma atdeve</li>
                             <li>Nedzirksteļo</li>
                         </ul>
+                        <a class="product-more" href="berza-malka.html">Vairāk par bērza malku</a>
                     </div>
                 </div>
             </div>
@@ -391,6 +438,7 @@
                     <p>Piegādājam tieši uz jūsu māju līdz 72 stundu laikā visā Kurzemes teritorijā.</p>
                 </div>
             </div>
+            <a class="product-more" href="malkas-piegade.html">Piegādes apjomi un pilsētas</a>
         </div>
     </section>
 
@@ -428,6 +476,7 @@
                     <p class="spec-note">Piegāde berkubos beramā veidā ar mazo pašizgāzēju vai maisos - ērti un ātri tieši jūsu sētā.</p>
                 </div>
             </div>
+            <a class="product-more" href="malkas-cenas.html">Cenas, apjomi un iepakojuma izvēle</a>
         </div>
     </section>
 
@@ -562,13 +611,27 @@
                     <a href="mailto:info@malkasguru.lv">info@malkasguru.lv</a>
                 </div>
             </div>
-            <div class="footer-links">
-                <a href="#par-uznemumu">Par mums</a>
-                <a href="#produkcija">Malka</a>
-                <a href="#kvalitate">Kvalitāte</a>
-                <a href="#piegade">Piegāde</a>
-                <a href="#galerija">Galerija</a>
+            <div class="footer-col">
+                <h4>Malkas veidi</h4>
+                <a href="osa-malka.html">Oša malka</a>
+                <a href="ozola-malka.html">Ozola malka</a>
+                <a href="alksna-malka.html">Alkšņa malka</a>
+                <a href="berza-malka.html">Bērza malka</a>
+                <a href="kaminmalka.html">Kamīnmalka</a>
+            </div>
+            <div class="footer-col">
+                <h4>Pakalpojumi</h4>
+                <a href="malkas-piegade.html">Malkas piegāde</a>
+                <a href="malkas-cenas.html">Malkas cenas</a>
+                <a href="#produkcija">Produkcija</a>
                 <a href="#kontakti">Kontakti</a>
+            </div>
+            <div class="footer-col">
+                <h4>Uzņēmums</h4>
+                <a href="#par-uznemumu">Par mums</a>
+                <a href="#kvalitate">Kvalitāte</a>
+                <a href="#galerija">Galerija</a>
+                <a href="https://www.gude.lv/">GUDE - ražošana un eksports</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -659,7 +722,7 @@
         <img id="galleryLightboxImg" src="" alt="">
     </div>
 
-    <script src="js/main.js?v=52"></script>
+    <script src="js/main.js?v=53"></script>
     <script>
         (function() {
             const lightbox = document.getElementById('galleryLightbox');

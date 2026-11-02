@@ -350,12 +350,12 @@ function closePopup() {
 ctaButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        openPopup();
+        if (contactPopup) openPopup();
     });
 });
 
-popupClose.addEventListener('click', closePopup);
-contactOverlay.addEventListener('click', closePopup);
+if (popupClose) popupClose.addEventListener('click', closePopup);
+if (contactOverlay) contactOverlay.addEventListener('click', closePopup);
 
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mainNav = document.getElementById('mainNav');
@@ -487,7 +487,8 @@ function scrollToTop(e) {
 }
 
 if (logoLink) {
-    logoLink.addEventListener('click', scrollToTop);
+    const isHomePage = /\/$|\/index\.html$/.test(window.location.pathname);
+    if (isHomePage) logoLink.addEventListener('click', scrollToTop);
 }
 
 if (footerLogo) {

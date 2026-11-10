@@ -3423,6 +3423,11 @@ body.cookies-accepted .cookie-consent {
     color: var(--text-light2);
 }
 
+.table-note a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 .faq {
     margin-top: 52px;
     border-top: 1px solid var(--border-light);

@@ -1052,6 +1052,10 @@ nav a:not(.header-cta):hover::after {
     margin-top: 80px;
 }
 
+.products-grid + .table-note {
+    margin-top: 32px;
+}
+
 .product-card {
     position: relative;
     background: var(--card-bg);
